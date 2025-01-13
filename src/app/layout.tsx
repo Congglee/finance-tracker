@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "@/styles/globals.css";
+import AppProvider from "@/providers/app-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -19,9 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${rubik.variable} ${rubik.className} antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AppProvider>{children}</AppProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

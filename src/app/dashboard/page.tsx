@@ -1,5 +1,6 @@
+import DataCharts from "@/app/dashboard/_components/data-charts";
+import DataGrid from "@/app/dashboard/_components/data-grid";
 import ContentLayout from "@/components/dashboard-panel/content-layout";
-import Filters from "@/components/dashboard-panel/filters";
 
 const breadcrumbs = [
   { name: "Home", href: "/" },
@@ -8,9 +9,11 @@ const breadcrumbs = [
 
 export default function DashboardPage() {
   return (
-    <ContentLayout title="Dashboard" breadcrumbs={breadcrumbs}>
-      <Filters />
-      <div className="py-10">Dashboard</div>
+    <ContentLayout title="Dashboard" breadcrumbs={breadcrumbs} hasFilters>
+      <div className="mt-8 space-y-8">
+        <DataGrid />
+        <DataCharts />
+      </div>
     </ContentLayout>
   );
 }

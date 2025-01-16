@@ -14,7 +14,7 @@ export default function DashboardNav({ title }: DashboardNavProps) {
           <SheetMenu />
           <h4 className="font-bold">{title}</h4>
         </div>
-        <div className="flex flex-1 items-center space-x-2 justify-end">
+        <div className="flex flex-1 items-center space-x-4 justify-end">
           <ModeToggle />
           <UserNav />
         </div>

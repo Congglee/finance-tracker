@@ -9,17 +9,21 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
+import { Fragment } from "react";
 
 interface ContentLayoutProps {
   title: string;
   children: React.ReactNode;
   breadcrumbs: { name: string; href: string }[];
+
+  hasFilters?: boolean;
 }
 
 export default function ContentLayout({
   title,
   children,
   breadcrumbs = [],
+  hasFilters = true,
 }: ContentLayoutProps) {
   return (
     <>
@@ -27,23 +31,26 @@ export default function ContentLayout({
       <div className="container py-8 px-4 sm:px-8">
         <Breadcrumb>
           <BreadcrumbList>
-            {breadcrumbs.map((breadcrumb) => {
+            {breadcrumbs.map((breadcrumb, index) => {
               const isLastBreadcrumb =
                 breadcrumbs.indexOf(breadcrumb) === breadcrumbs.length - 1;
               return (
-                <>
-                  <BreadcrumbItem key={breadcrumb.name}>
+                <Fragment key={index}>
+                  <BreadcrumbItem>
                     <BreadcrumbLink asChild>
                       <Link href={breadcrumb.href}>{breadcrumb.name}</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   {!isLastBreadcrumb && <BreadcrumbSeparator />}
-                </>
+                </Fragment>
               );
             })}
           </BreadcrumbList>
         </Breadcrumb>
-        <WelcomeMsg />
+        <div className="space-y-4">
+          <WelcomeMsg />
+          {hasFilters && <Filters />}
+        </div>
         {children}
       </div>
     </>

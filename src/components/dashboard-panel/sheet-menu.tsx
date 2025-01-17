@@ -6,6 +6,7 @@ import {
   SheetHeader,
   SheetContent,
   SheetTrigger,
+  SheetTitle,
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
@@ -20,6 +21,7 @@ export default function SheetMenu() {
       </SheetTrigger>
       <SheetContent className="sm:w-72 px-3 h-full flex flex-col" side="left">
         <SheetHeader>
+          <SheetTitle className="hidden" />
           <Button
             className="flex justify-center items-center pb-2 pt-1"
             variant="link"

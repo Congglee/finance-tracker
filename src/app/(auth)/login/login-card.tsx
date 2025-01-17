@@ -29,7 +29,7 @@ export default function LoginCard() {
   });
 
   return (
-    <Card className="w-full h-full md:w-[487px] border-none shadow-none">
+    <Card className="w-full h-full md:w-[487px] border-none shadow-none bg-muted dark:bg-card">
       <CardHeader className="flex items-center justify-center text-center p-7">
         <CardTitle className="text-2xl">Welcome back 🙌</CardTitle>
       </CardHeader>
@@ -94,7 +94,7 @@ export default function LoginCard() {
       <Separator />
       <CardContent className="p-7 flex flex-col">
         <Button
-          variant="secondary"
+          variant="outline"
           size="lg"
           className="w-full"
           disabled={false}
@@ -109,7 +109,7 @@ export default function LoginCard() {
         <p className="text-sm font-medium text-muted-foreground">
           Don&apos;t have an account?{" "}
           <Link href="/register">
-            <span className="text-secondary">Register</span>
+            <span className="text-[#b973f4]">Register</span>
           </Link>
         </p>
       </CardContent>

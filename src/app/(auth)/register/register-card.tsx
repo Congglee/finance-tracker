@@ -40,17 +40,21 @@ export default function RegisterCard() {
   });
 
   return (
-    <Card className="w-full h-full md:w-[487px] border-none shadow-none">
+    <Card className="w-full h-full md:w-[487px] border-none shadow-none bg-muted dark:bg-card">
       <CardHeader className="flex items-center justify-center text-center p-7">
         <CardTitle className="text-2xl">Sign Up 🏦</CardTitle>
         <CardDescription>
           By signing up, you agree to our{" "}
           <Link href="/privacy">
-            <span className="text-primary">Privacy Policy</span>
+            <span className="text-primary font-medium hover:underline">
+              Privacy Policy
+            </span>
           </Link>{" "}
           and{" "}
           <Link href="/terms">
-            <span className="text-primary">Terms of Service</span>
+            <span className="text-primary font-medium hover:underline">
+              Terms of Service
+            </span>
           </Link>
         </CardDescription>
       </CardHeader>
@@ -145,7 +149,7 @@ export default function RegisterCard() {
       <Separator />
       <CardContent className="p-7 flex flex-col">
         <Button
-          variant="secondary"
+          variant="outline"
           size="lg"
           className="w-full"
           disabled={false}
@@ -160,7 +164,7 @@ export default function RegisterCard() {
         <p className="text-sm font-medium text-muted-foreground">
           Already have an account?{" "}
           <Link href="/login">
-            <span className="text-secondary">Login</span>
+            <span className="text-[#b973f4]">Login</span>
           </Link>
         </p>
       </CardContent>

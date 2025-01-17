@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { format, subDays } from "date-fns";
+import { DateRange } from "react-day-picker";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -36,7 +37,7 @@ type Period = {
   to: string | Date | undefined;
 };
 
-export function formatDateRange(period?: Period) {
+export function formatDateRange(period?: Period | DateRange) {
   const defaultTo = new Date();
   const defaultFrom = subDays(defaultTo, 30);
 

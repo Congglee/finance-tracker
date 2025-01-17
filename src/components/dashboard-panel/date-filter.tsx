@@ -64,7 +64,7 @@ export default function DateFilter() {
           variant="outline"
           className="lg:w-auto w-full h-9 rounded-md px-3 font-normal border-none focus:ring-offset-0 focus:ring-transparent outline-none transition"
         >
-          <span>{formatDateRange(paramState)}</span>
+          <span>{formatDateRange(date)}</span>
           <ChevronDown className="ml-2 size-4 opacity-50" />
         </Button>
       </PopoverTrigger>

@@ -14,7 +14,7 @@ interface RadarVariantProps {
   }[];
 }
 
-export default function RadarVariant({ data }: RadarVariantProps) {
+export default function RadarVariant({ data = [] }: RadarVariantProps) {
   return (
     <ResponsiveContainer width="100%" height={350}>
       <RadarChart cx="50%" cy="50%" outerRadius="60%" data={data}>

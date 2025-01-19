@@ -1,5 +1,5 @@
-import AccountFilter from "@/components/dashboard-panel/account-filter";
-import DateFilter from "@/components/dashboard-panel/date-filter";
+import AccountFilter from "@/components/account-filter";
+import DateFilter from "@/components/date-filter";
 
 export default function Filters() {
   return (

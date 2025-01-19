@@ -1,4 +1,4 @@
-import AuthSwitch from "@/app/(auth)/auth-switch";
+import AuthSwitcher from "@/app/(auth)/auth-switcher";
 import Logo from "@/components/logo";
 import Link from "next/link";
 
@@ -13,7 +13,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
         <Link href="/">
           <Logo />
         </Link>
-        <AuthSwitch />
+        <AuthSwitcher />
       </nav>
       <div className="flex flex-col items-center justify-center pt-4">
         {children}

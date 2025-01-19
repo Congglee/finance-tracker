@@ -39,7 +39,7 @@ export const menuList: MenuGroup[] = [
     label: "Contents",
     menus: [
       {
-        href: "",
+        href: "/dashboard/transactions",
         label: "Transactions",
         icon: ArrowLeftRight,
         submenus: [

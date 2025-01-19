@@ -15,7 +15,6 @@ interface ContentLayoutProps {
   title: string;
   children: React.ReactNode;
   breadcrumbs: { name: string; href: string }[];
-
   hasFilters?: boolean;
 }
 

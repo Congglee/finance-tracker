@@ -21,6 +21,10 @@ export default function DataTableToolbar<TData>({
   disabled = false,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
+  const allColumns = table.getAllColumns();
+  const hasCategoryColumn = allColumns.find(
+    (column) => column.id === "category"
+  );
 
   return (
     <div className="flex flex-col md:flex-row md:items-center justify-between py-4 gap-y-2">
@@ -33,10 +37,9 @@ export default function DataTableToolbar<TData>({
           }
           className="h-9 w-full md:max-w-sm"
         />
-        {table.getColumn("category") &&
-          table.getColumn("category")?.getCanFilter() && (
-            <CategoryFilter column={table.getColumn("category")} />
-          )}
+        {hasCategoryColumn && (
+          <CategoryFilter column={table.getColumn("category")} />
+        )}
         {isFiltered && (
           <Button
             variant="ghost"

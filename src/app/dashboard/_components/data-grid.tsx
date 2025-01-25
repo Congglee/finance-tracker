@@ -1,7 +1,7 @@
 "use client";
 
 import DataCard from "@/app/dashboard/_components/data-card";
-import { summary } from "@/constants/data";
+import { summary } from "@/constants/mock-data";
 import { FaPiggyBank } from "react-icons/fa";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 

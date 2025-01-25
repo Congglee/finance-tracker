@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { accounts } from "@/constants/data";
+import { accounts } from "@/constants/mock-data";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 

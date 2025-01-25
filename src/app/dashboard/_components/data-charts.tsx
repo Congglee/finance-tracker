@@ -2,7 +2,7 @@
 
 import Chart from "@/app/dashboard/_components/chart";
 import SpendingPie from "@/app/dashboard/_components/spending-pie";
-import { summary } from "@/constants/data";
+import { summary } from "@/constants/mock-data";
 
 export default function DataCharts() {
   return (

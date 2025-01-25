@@ -9,7 +9,7 @@ const breadcrumbs = [
 
 export default function DashboardPage() {
   return (
-    <ContentLayout title="Dashboard" breadcrumbs={breadcrumbs} hasFilters>
+    <ContentLayout title="Dashboard" breadcrumbs={breadcrumbs}>
       <div className="mt-8 space-y-8">
         <DataGrid />
         <DataCharts />

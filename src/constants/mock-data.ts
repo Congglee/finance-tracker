@@ -73,6 +73,41 @@ export const accounts = [
   },
 ];
 
+export const categories = [
+  {
+    id: "1",
+    name: "Utilities",
+    icon: "🛠",
+    userId: "1",
+    createdAt: "2025-01-04T17:00:00.000Z",
+    updatedAt: "2025-01-04T17:00:00.000Z",
+  },
+  {
+    id: "2",
+    name: "Rent",
+    icon: "🏠",
+    userId: "1",
+    createdAt: "2025-01-05T17:00:00.000Z",
+    updatedAt: "2025-01-05T17:00:00.000Z",
+  },
+  {
+    id: "3",
+    name: "Clothing",
+    icon: "👕",
+    userId: "1",
+    createdAt: "2025-01-06T17:00:00.000Z",
+    updatedAt: "2025-01-06T17:00:00.000Z",
+  },
+  {
+    id: "4",
+    name: "Other",
+    icon: "🛒",
+    userId: "1",
+    createdAt: "2025-01-07T17:00:00.000Z",
+    updatedAt: "2025-01-07T17:00:00.000Z",
+  },
+];
+
 export const summary = {
   remainingAmount: 2693946,
   remainingChange: 0,

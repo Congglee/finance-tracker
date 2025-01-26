@@ -9,7 +9,7 @@ const breadcrumbs = [
 
 export default function TransactionsPage() {
   return (
-    <ContentLayout title="Transactions" breadcrumbs={breadcrumbs} hasFilters>
+    <ContentLayout title="Transactions" breadcrumbs={breadcrumbs}>
       <div className="mt-8 space-y-8">
         <TransactionsClient />
       </div>

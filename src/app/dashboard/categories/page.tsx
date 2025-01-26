@@ -9,7 +9,7 @@ const breadcrumbs = [
 
 export default function CategoriesPage() {
   return (
-    <ContentLayout title="Categories" breadcrumbs={breadcrumbs} hasFilters>
+    <ContentLayout title="Categories" breadcrumbs={breadcrumbs}>
       <div className="mt-8 space-y-8">
         <CategoriesClient />
       </div>

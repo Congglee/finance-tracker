@@ -1,6 +1,5 @@
 import DashboardNav from "@/components/dashboard-panel/dashboard-nav";
 import Filters from "@/components/dashboard-panel/filters";
-import WelcomeMsg from "@/components/dashboard-panel/welcome-msg";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,12 +9,15 @@ import {
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
 import { Fragment } from "react";
+import DashboardHeading from "@/components/dashboard-panel/dashboard-heading";
 
 interface ContentLayoutProps {
   title: string;
   children: React.ReactNode;
   breadcrumbs: { name: string; href: string }[];
   hasFilters?: boolean;
+  heading?: string;
+  description?: string;
 }
 
 export default function ContentLayout({
@@ -23,6 +25,8 @@ export default function ContentLayout({
   children,
   breadcrumbs = [],
   hasFilters = true,
+  heading,
+  description,
 }: ContentLayoutProps) {
   return (
     <>
@@ -47,7 +51,7 @@ export default function ContentLayout({
           </BreadcrumbList>
         </Breadcrumb>
         <div className="space-y-4">
-          <WelcomeMsg />
+          <DashboardHeading heading={heading} description={description} />
           {hasFilters && <Filters />}
         </div>
         {children}

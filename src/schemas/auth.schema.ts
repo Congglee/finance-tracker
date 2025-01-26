@@ -18,8 +18,9 @@ export const RegisterBody = z
   .object({
     name: z
       .string()
-      .min(1, { message: "Name is required" })
-      .max(100, { message: "Name must be at most 100 characters" }),
+      .trim()
+      .min(2, { message: "Name is required" })
+      .max(256, { message: "Name must be at most 256 characters" }),
     email: z.string().min(1, { message: "Email is required" }).email({
       message: "Invalid email",
     }),
@@ -33,9 +34,14 @@ export const RegisterBody = z
       .max(100, "Confirm password must be at most 100 characters"),
   })
   .strict()
-  .refine((values) => values.password === values.confirm_password, {
-    message: "Passwords do not match",
-    path: ["confirm_password"],
+  .superRefine(({ confirm_password, password }, ctx) => {
+    if (confirm_password !== password) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Passwords do not match",
+        path: ["confirm_password"],
+      });
+    }
   });
 
 export type RegisterBodyType = z.TypeOf<typeof RegisterBody>;

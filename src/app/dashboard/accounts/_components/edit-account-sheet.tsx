@@ -1,4 +1,4 @@
-import EditCategoryForm from "@/app/dashboard/categories/_components/edit-category-form";
+import EditAccountForm from "@/app/dashboard/accounts/_components/edit-account-form";
 import {
   Sheet,
   SheetContent,
@@ -6,34 +6,34 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { categories } from "@/constants/mock-data";
-import { useOpenCategory } from "@/store/categories/use-open-category";
+import { accounts } from "@/constants/mock-data";
+import { useOpenAccount } from "@/store/accounts/use-open-account";
 import { Loader2 } from "lucide-react";
 
-export default function EditCategorySheet() {
-  const { isOpen, onClose, id } = useOpenCategory();
+export default function EditAccountSheet() {
+  const { isOpen, onClose, id } = useOpenAccount();
 
   const isPending = false;
 
   const isLoading = false;
 
-  const category = categories.find((c) => c.id === id);
+  const account = accounts.find((a) => a.id === id);
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="space-y-4 w-full sm:max-w-md overflow-y-auto scroll">
         <SheetHeader>
-          <SheetTitle>Edit Category</SheetTitle>
-          <SheetDescription>Edit an existing category</SheetDescription>
+          <SheetTitle>Edit Account</SheetTitle>
+          <SheetDescription>Edit an existing account</SheetDescription>
         </SheetHeader>
         {isLoading ? (
           <div className="absolute inset-0 flex items-center justify-center">
             <Loader2 className="size-4 text-muted-foreground animate-spin" />
           </div>
         ) : (
-          <EditCategoryForm
+          <EditAccountForm
             onClose={onClose}
-            initialValues={category}
+            initialValues={account}
             disabled={isPending}
           />
         )}

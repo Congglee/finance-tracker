@@ -44,3 +44,17 @@ export const ChangePasswordBody = z
   });
 
 export type ChangePasswordBodyType = z.TypeOf<typeof ChangePasswordBody>;
+
+export const CreateAccountBody = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(1, { message: "Name is required" })
+    .max(256, { message: "Name must be at most 256 characters" }),
+});
+
+export type CreateAccountBodyType = z.TypeOf<typeof CreateAccountBody>;
+
+export const UpdateAccountBody = CreateAccountBody;
+
+export type UpdateAccountBodyType = z.TypeOf<typeof UpdateAccountBody>;

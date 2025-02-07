@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useOpenAccount } from "@/store/accounts/use-open-account";
 
 interface AccountActionsProps {
   accountId: string;
@@ -19,6 +20,8 @@ export default function AccountActions({ accountId }: AccountActionsProps) {
     "Are you sure you want to delete this account?",
     "You are about to delete this account."
   );
+
+  const { onOpen } = useOpenAccount();
 
   const handleDelete = async () => {
     const ok = await confirm();
@@ -41,7 +44,7 @@ export default function AccountActions({ accountId }: AccountActionsProps) {
         <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuItem
             disabled={false}
-            onClick={() => {}}
+            onClick={() => onOpen(accountId)}
             className="font-medium p-2"
           >
             <Edit className="size-4 mr-2 stroke-2" />

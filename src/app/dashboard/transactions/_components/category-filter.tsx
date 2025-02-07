@@ -72,7 +72,6 @@ export default function CategoryFilter<TData, TValue>({
                     >
                       <CheckIcon className={cn("h-4 w-4")} />
                     </div>
-
                     <span>{option.label}</span>
                     {facets?.get(option.value) && (
                       <span className="ml-auto flex h-4 w-4 items-center justify-center font-mono text-xs">

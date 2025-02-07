@@ -3,6 +3,7 @@ import { Rubik } from "next/font/google";
 import "@/styles/globals.css";
 import AppProvider from "@/providers/app-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
+import SheetProvider from "@/providers/sheet-provider";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -29,7 +30,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AppProvider>{children}</AppProvider>
+          <AppProvider>
+            {children}
+            <SheetProvider />
+          </AppProvider>
         </ThemeProvider>
       </body>
     </html>

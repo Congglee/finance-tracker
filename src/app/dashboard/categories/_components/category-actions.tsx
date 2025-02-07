@@ -11,10 +11,10 @@ import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface CategoryActionsProps {
-  id: string;
+  categoryId: string;
 }
 
-export default function CategoryActions({ id }: CategoryActionsProps) {
+export default function CategoryActions({ categoryId }: CategoryActionsProps) {
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure you want to delete this category?",
     "You are about to delete this category."
@@ -25,7 +25,7 @@ export default function CategoryActions({ id }: CategoryActionsProps) {
 
     if (ok) {
       // Delete category
-      console.log("Delete category with id:", id);
+      console.log("Delete category with id:", categoryId);
     }
   };
 

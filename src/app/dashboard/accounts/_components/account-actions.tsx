@@ -11,10 +11,10 @@ import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface AccountActionsProps {
-  id: string;
+  accountId: string;
 }
 
-export default function AccountActions({ id }: AccountActionsProps) {
+export default function AccountActions({ accountId }: AccountActionsProps) {
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure you want to delete this account?",
     "You are about to delete this account."
@@ -25,7 +25,7 @@ export default function AccountActions({ id }: AccountActionsProps) {
 
     if (ok) {
       // Delete account
-      console.log("Delete account with id:", id);
+      console.log("Delete account with id:", accountId);
     }
   };
 

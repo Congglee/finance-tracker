@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useOpenCategory } from "@/store/categories/use-open-category";
 
 interface CategoryActionsProps {
   categoryId: string;
@@ -19,6 +20,8 @@ export default function CategoryActions({ categoryId }: CategoryActionsProps) {
     "Are you sure you want to delete this category?",
     "You are about to delete this category."
   );
+
+  const { onOpen } = useOpenCategory();
 
   const handleDelete = async () => {
     const ok = await confirm();
@@ -41,7 +44,7 @@ export default function CategoryActions({ categoryId }: CategoryActionsProps) {
         <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuItem
             disabled={false}
-            onClick={() => {}}
+            onClick={() => onOpen(categoryId)}
             className="font-medium p-2"
           >
             <Edit className="size-4 mr-2 stroke-2" />

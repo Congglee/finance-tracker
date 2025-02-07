@@ -1,4 +1,4 @@
-import NewTransactionForm from "@/app/dashboard/transactions/_components/new-transaction-form";
+import NewCategoryForm from "@/app/dashboard/categories/_components/new-category-form";
 import {
   Sheet,
   SheetContent,
@@ -6,12 +6,11 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { accountOptions, categoryOptions } from "@/constants/options";
-import { useNewTransaction } from "@/store/transactions/use-new-transaction";
+import { useNewCategory } from "@/store/categories/use-new-category";
 import { Loader2 } from "lucide-react";
 
-export default function NewTransactionSheet() {
-  const { isOpen, onClose } = useNewTransaction();
+export default function NewCategorySheet() {
+  const { isOpen, onClose } = useNewCategory();
 
   const isPending = false;
 
@@ -21,9 +20,9 @@ export default function NewTransactionSheet() {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="space-y-4 w-full sm:max-w-md overflow-y-auto scroll">
         <SheetHeader>
-          <SheetTitle>New Transaction</SheetTitle>
+          <SheetTitle>New Category</SheetTitle>
           <SheetDescription>
-            Create a new transaction to track your transactions.
+            Create a new category to organize your transactions.
           </SheetDescription>
         </SheetHeader>
         {isLoading ? (
@@ -31,12 +30,7 @@ export default function NewTransactionSheet() {
             <Loader2 className="size-4 text-muted-foreground animate-spin" />
           </div>
         ) : (
-          <NewTransactionForm
-            categoryOptions={categoryOptions ?? []}
-            accountOptions={accountOptions ?? []}
-            onClose={onClose}
-            disabled={isPending}
-          />
+          <NewCategoryForm onClose={onClose} disabled={isPending} />
         )}
       </SheetContent>
     </Sheet>

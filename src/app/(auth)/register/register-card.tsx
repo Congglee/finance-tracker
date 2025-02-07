@@ -31,7 +31,7 @@ export default function RegisterCard() {
       name: "",
       email: "",
       password: "",
-      confirm_password: "",
+      confirmPassword: "",
     },
   });
 
@@ -117,7 +117,7 @@ export default function RegisterCard() {
               )}
             />
             <FormField
-              name="confirm_password"
+              name="confirmPassword"
               control={form.control}
               render={({ field }) => (
                 <FormItem>

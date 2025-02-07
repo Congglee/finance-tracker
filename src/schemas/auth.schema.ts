@@ -28,18 +28,18 @@ export const RegisterBody = z
       .string()
       .min(6, "Password must be at least 6 characters")
       .max(100, "Password must be at most 100 characters"),
-    confirm_password: z
+    confirmPassword: z
       .string()
       .min(6, "Confirm password must be at least 6 characters")
       .max(100, "Confirm password must be at most 100 characters"),
   })
   .strict()
-  .superRefine(({ confirm_password, password }, ctx) => {
-    if (confirm_password !== password) {
+  .superRefine(({ confirmPassword, password }, ctx) => {
+    if (confirmPassword !== password) {
       ctx.addIssue({
         code: "custom",
         message: "Passwords do not match",
-        path: ["confirm_password"],
+        path: ["confirmPassword"],
       });
     }
   });

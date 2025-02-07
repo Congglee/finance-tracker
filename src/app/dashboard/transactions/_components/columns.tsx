@@ -90,6 +90,9 @@ export const columns: ColumnDef<TransactionItem>[] = [
         />
       );
     },
+    filterFn: (row, id, value) => {
+      return value.includes(row.original.categoryId);
+    },
   },
   {
     accessorKey: "payee",
@@ -155,6 +158,6 @@ export const columns: ColumnDef<TransactionItem>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => <TransactionActions id={row.original.id} />,
+    cell: ({ row }) => <TransactionActions transactionId={row.original.id} />,
   },
 ];

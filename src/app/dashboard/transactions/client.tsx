@@ -7,9 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { transactions } from "@/constants/mock-data";
+import { useNewTransaction } from "@/store/transactions/use-new-transaction";
 import { PlusCircle } from "lucide-react";
+import { createContext } from "react";
 
 export default function TransactionsClient() {
+  const { onOpen } = useNewTransaction();
+
   return (
     <Card className="border-none drop-shadow-sm">
       <CardHeader className="gap-y-2 lg:flex-row lg:items-center lg:justify-between">
@@ -19,7 +23,7 @@ export default function TransactionsClient() {
         <div className="flex flex-col lg:flex-row items-center gap-2">
           <Button
             size="sm"
-            onClick={() => {}}
+            onClick={onOpen}
             className="w-full lg:w-auto bg-[#4CAF50]"
           >
             <PlusCircle className="size-4 mr-2" />

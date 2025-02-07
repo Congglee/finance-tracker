@@ -11,9 +11,15 @@ import {
 const AppContext = createContext<{
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
+
+  newTransactionSheetOpen: boolean;
+  setNewTransactionSheetOpen: (open: boolean) => void;
 }>({
   sidebarOpen: true,
   setSidebarOpen: () => {},
+
+  newTransactionSheetOpen: false,
+  setNewTransactionSheetOpen: () => {},
 });
 
 export const useAppContext = () => {
@@ -27,6 +33,8 @@ export default function AppProvider({
   children: React.ReactNode;
 }) {
   const [sidebarOpen, setSidebarOpenState] = useState<boolean>(true);
+  const [newTransactionSheetOpen, setNewTransactionSheetOpen] =
+    useState<boolean>(false);
 
   const setSidebarOpen = useCallback(
     (open: boolean) => {
@@ -42,7 +50,14 @@ export default function AppProvider({
   }, [setSidebarOpenState]);
 
   return (
-    <AppContext.Provider value={{ sidebarOpen, setSidebarOpen }}>
+    <AppContext.Provider
+      value={{
+        sidebarOpen,
+        setSidebarOpen,
+        newTransactionSheetOpen,
+        setNewTransactionSheetOpen,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

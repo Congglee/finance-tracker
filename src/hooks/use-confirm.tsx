@@ -11,6 +11,35 @@ import {
 } from "@/components/ui/card";
 import ResponsiveModal from "@/components/responsive-modal";
 
+/**
+ * A custom hook that creates a confirmation dialog with customizable title, message, and button variant.
+ *
+ * @param title - The title text to display in the confirmation dialog
+ * @param message - The message text to display in the confirmation dialog
+ * @param variant - The variant style for the confirm button (defaults to "default")
+ *
+ * @returns A tuple containing:
+ * - A React component function that renders the confirmation dialog
+ * - A function that returns a Promise which resolves to a boolean indicating user's choice
+ *
+ * @example
+ * ```tsx
+ * const [ConfirmDialog, confirm] = useConfirm(
+ *   "Delete Item",
+ *   "Are you sure you want to delete this item?",
+ *   "destructive"
+ * );
+ *
+ * // In your component:
+ * const handleDelete = async () => {
+ *   if (await confirm()) {
+ *     // User clicked confirm
+ *   } else {
+ *     // User clicked cancel or closed the dialog
+ *   }
+ * };
+ * ```
+ */
 export const useConfirm = (
   title: string,
   message: string,

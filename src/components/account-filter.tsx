@@ -43,8 +43,8 @@ export default function AccountFilter() {
       <SelectContent>
         <SelectItem value="all">All accounts</SelectItem>
         {accounts?.map((account) => (
-          <SelectItem key={account.id} value={account.id}>
-            {account.name}
+          <SelectItem key={account?.id} value={account?.id as string}>
+            {account?.name}
           </SelectItem>
         ))}
       </SelectContent>

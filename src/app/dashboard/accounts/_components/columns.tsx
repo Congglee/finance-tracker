@@ -46,6 +46,6 @@ export const columns: ColumnDef<AccountItem>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => <AccountActions id={row.original.id} />,
+    cell: ({ row }) => <AccountActions accountId={row.original.id} />,
   },
 ];

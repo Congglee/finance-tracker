@@ -1,5 +1,7 @@
 "use client";
 
+import EditAccountSheet from "@/app/dashboard/accounts/_components/edit-account-sheet";
+import NewAccountSheet from "@/app/dashboard/accounts/_components/new-account-sheet";
 import EditCategorySheet from "@/app/dashboard/categories/_components/edit-category-sheet";
 import NewCategorySheet from "@/app/dashboard/categories/_components/new-category-sheet";
 import EditTransactionSheet from "@/app/dashboard/transactions/_components/edit-transaction-sheet";
@@ -20,6 +22,9 @@ export default function SheetProvider() {
 
       <NewCategorySheet />
       <EditCategorySheet />
+
+      <NewAccountSheet />
+      <EditAccountSheet />
     </>
   );
 }

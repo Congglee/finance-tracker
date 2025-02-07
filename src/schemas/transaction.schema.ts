@@ -3,6 +3,7 @@ import { z } from "zod";
 export const CreateTransactionBody = z.object({
   name: z
     .string()
+    .trim()
     .min(1, { message: "Name is required" })
     .max(256, { message: "Name must be at most 256 characters" }),
   amount: z.string(), // This will be converted to a number in the AmountInput component

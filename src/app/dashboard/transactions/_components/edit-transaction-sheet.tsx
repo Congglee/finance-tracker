@@ -37,6 +37,7 @@ export default function EditTransactionSheet() {
             accountOptions={accountOptions ?? []}
             onClose={onClose}
             initialValues={transaction}
+            disabled={isPending}
           />
         )}
       </SheetContent>

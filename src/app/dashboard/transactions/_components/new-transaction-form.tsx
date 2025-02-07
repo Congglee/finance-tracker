@@ -24,12 +24,14 @@ interface NewTransactionSheetProps {
   categoryOptions: Option[];
   accountOptions: Option[];
   onClose: () => void;
+  disabled?: boolean;
 }
 
 export default function NewTransactionForm({
   categoryOptions,
   accountOptions,
   onClose,
+  disabled,
 }: NewTransactionSheetProps) {
   const form = useForm<CreateTransactionBodyType>({
     resolver: zodResolver(CreateTransactionBody),
@@ -169,11 +171,12 @@ export default function NewTransactionForm({
             </FormItem>
           )}
         />
-        <Button className="w-full" disabled={false}>
+        <Button className="w-full" disabled={disabled}>
           Create transaction
         </Button>
         <Button
           type="button"
+          disabled={disabled}
           onClick={() => form.reset()}
           className="w-full"
           variant="outline"

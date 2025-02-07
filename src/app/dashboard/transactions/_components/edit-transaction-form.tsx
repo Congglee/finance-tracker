@@ -26,6 +26,7 @@ interface EditTransactionFormProps {
   accountOptions: Option[];
   onClose: () => void;
   initialValues: any; // TODO: Replace any with data type from response data
+  disabled?: boolean;
 }
 
 export default function EditTransactionForm({
@@ -33,6 +34,7 @@ export default function EditTransactionForm({
   accountOptions,
   onClose,
   initialValues,
+  disabled,
 }: EditTransactionFormProps) {
   const form = useForm<UpdateTransactionBodyType>({
     resolver: zodResolver(UpdateTransactionBody),
@@ -187,11 +189,12 @@ export default function EditTransactionForm({
             </FormItem>
           )}
         />
-        <Button className="w-full" disabled={false}>
+        <Button className="w-full" disabled={disabled}>
           Save changes
         </Button>
         <Button
           type="button"
+          disabled={disabled}
           onClick={() => form.reset()}
           className="w-full"
           variant="outline"

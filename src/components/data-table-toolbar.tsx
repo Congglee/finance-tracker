@@ -22,20 +22,21 @@ export default function DataTableToolbar<TData>({
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
   const allColumns = table.getAllColumns();
+
   const hasCategoryColumn = allColumns.find(
     (column) => column.id === "category"
   );
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center justify-between py-4 gap-y-2">
-      <div className="flex flex-col md:flex-row md:items-center gap-2">
+    <div className="flex w-full items-center justify-between gap-2 overflow-auto px-1 py-2 my-2 scroll">
+      <div className="flex flex-1 items-center gap-2">
         <Input
           placeholder={`Filter ${filterKey}...`}
           value={(table.getColumn(filterKey)?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn(filterKey)?.setFilterValue(event.target.value)
           }
-          className="h-9 w-full md:max-w-sm"
+          className="h-9 w-40 lg:w-64"
         />
         {hasCategoryColumn && (
           <CategoryFilter column={table.getColumn("category")} />
@@ -51,7 +52,7 @@ export default function DataTableToolbar<TData>({
           </Button>
         )}
       </div>
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-2">
         {table.getFilteredSelectedRowModel().rows.length > 0 && (
           <Button
             disabled={disabled}

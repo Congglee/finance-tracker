@@ -11,11 +11,13 @@ import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useOpenTransaction } from "@/store/transactions/use-open-transaction";
 
-interface ActionsProps {
+interface TransactionsActionsProps {
   transactionId: string;
 }
 
-export default function TransactionActions({ transactionId }: ActionsProps) {
+export default function TransactionActions({
+  transactionId,
+}: TransactionsActionsProps) {
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure you want to delete this transaction?",
     "You are about to delete this transaction."
@@ -42,20 +44,18 @@ export default function TransactionActions({ transactionId }: ActionsProps) {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuItem
-            disabled={false}
             onClick={() => onOpen(transactionId)}
-            className="font-medium p-2"
+            className="cursor-pointer font-medium p-[10px]"
           >
             <Edit className="size-4 mr-2 stroke-2" />
-            Edit
+            Edit Transaction
           </DropdownMenuItem>
           <DropdownMenuItem
-            disabled={false}
             onClick={handleDelete}
-            className="font-medium p-2 text-destructive focus:text-destructive/80"
+            className="cursor-pointer font-medium p-[10px] text-destructive focus:text-destructive/80"
           >
             <Trash className="size-4 mr-2 stroke-2" />
-            Delete
+            Delete Transaction
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

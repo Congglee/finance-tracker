@@ -37,7 +37,7 @@ export const RegisterBody = z
   .superRefine(({ confirmPassword, password }, ctx) => {
     if (confirmPassword !== password) {
       ctx.addIssue({
-        code: "custom",
+        code: z.ZodIssueCode.custom,
         message: "Passwords do not match",
         path: ["confirmPassword"],
       });

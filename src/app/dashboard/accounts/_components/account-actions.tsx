@@ -45,18 +45,18 @@ export default function AccountActions({ accountId }: AccountActionsProps) {
           <DropdownMenuItem
             disabled={false}
             onClick={() => onOpen(accountId)}
-            className="font-medium p-2"
+            className="cursor-pointer font-medium p-[10px]"
           >
             <Edit className="size-4 mr-2 stroke-2" />
-            Edit
+            Edit Account
           </DropdownMenuItem>
           <DropdownMenuItem
             disabled={false}
             onClick={handleDelete}
-            className="font-medium p-2 text-destructive focus:text-destructive/80"
+            className="cursor-pointer font-medium p-[10px] text-destructive focus:text-destructive/80"
           >
             <Trash className="size-4 mr-2 stroke-2" />
-            Delete
+            Delete Account
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

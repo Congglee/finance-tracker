@@ -95,7 +95,7 @@ export default function DataTable<TData, TValue>({
   };
 
   return (
-    <div>
+    <div className="w-full overflow-auto">
       <ConfirmDialog />
       <DataTableToolbar
         table={table}
@@ -160,7 +160,7 @@ export default function DataTable<TData, TValue>({
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
         {/* <div>
-          <DataTablePagination
+          <AutoPagination
             page={table.getState().pagination.pageIndex + 1}
             pageSize={table.getPageCount()}
             pathname="/dashboard/transactions"

@@ -45,18 +45,18 @@ export default function CategoryActions({ categoryId }: CategoryActionsProps) {
           <DropdownMenuItem
             disabled={false}
             onClick={() => onOpen(categoryId)}
-            className="font-medium p-2"
+            className="cursor-pointer font-medium p-[10px]"
           >
             <Edit className="size-4 mr-2 stroke-2" />
-            Edit
+            Edit Category
           </DropdownMenuItem>
           <DropdownMenuItem
             disabled={false}
             onClick={handleDelete}
-            className="font-medium p-2 text-destructive focus:text-destructive/80"
+            className="cursor-pointer font-medium p-[10px] text-destructive focus:text-destructive/80"
           >
             <Trash className="size-4 mr-2 stroke-2" />
-            Delete
+            Delete Category
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

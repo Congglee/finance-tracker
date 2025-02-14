@@ -9,7 +9,6 @@ import { Separator } from "@/components/ui/separator";
 import { transactions } from "@/constants/mock-data";
 import { useNewTransaction } from "@/store/transactions/use-new-transaction";
 import { PlusCircle } from "lucide-react";
-import { createContext } from "react";
 
 export default function TransactionsClient() {
   const { onOpen } = useNewTransaction();

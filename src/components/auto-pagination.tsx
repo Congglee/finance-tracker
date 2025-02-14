@@ -11,23 +11,25 @@ import {
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-interface DataTablePaginationProps {
+interface AutoPaginationProps {
   page: number;
   pageSize: number;
   pathname?: string;
   isLink?: boolean;
   onClick?: (pageNumber: number) => void;
+  className?: string;
 }
 
 const RANGE = 2;
 
-export default function DataTablePagination({
+export default function AutoPagination({
   page,
   pageSize,
   pathname = "/",
   isLink = true,
   onClick = (pageNumber) => {},
-}: DataTablePaginationProps) {
+  className,
+}: AutoPaginationProps) {
   const renderPagination = () => {
     let dotAfter = false;
     let dotBefore = false;
@@ -109,7 +111,7 @@ export default function DataTablePagination({
   };
 
   return (
-    <Pagination className="justify-start sm:justify-center">
+    <Pagination className={cn("justify-start sm:justify-center", className)}>
       <PaginationContent>
         <PaginationItem>
           {isLink && (

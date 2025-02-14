@@ -1,3 +1,4 @@
+import BudgetsClient from "@/app/dashboard/budgets/client";
 import ContentLayout from "@/components/dashboard-panel/content-layout";
 
 const breadcrumbs = [
@@ -9,7 +10,9 @@ const breadcrumbs = [
 export default function BudgetsPage() {
   return (
     <ContentLayout title="Budgets" breadcrumbs={breadcrumbs}>
-      <div className="mt-8 space-y-8">Budgets Page</div>
+      <div className="mt-8 space-y-8">
+        <BudgetsClient />
+      </div>
     </ContentLayout>
   );
 }

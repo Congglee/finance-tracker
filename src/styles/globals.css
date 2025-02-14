@@ -5,6 +5,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -76,7 +77,7 @@ body {
 }
 
 .scroll::-webkit-scrollbar {
-  @apply w-1 h-2;
+  @apply w-1 h-1.5;
 }
 
 .scroll::-webkit-scrollbar-track {
@@ -97,5 +98,5 @@ body {
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+  @apply hidden;
 }

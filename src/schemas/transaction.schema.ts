@@ -6,7 +6,10 @@ export const CreateTransactionBody = z.object({
     .trim()
     .min(1, { message: "Name is required" })
     .max(256, { message: "Name must be at most 256 characters" }),
-  amount: z.string(), // This will be converted to a number in the AmountInput component
+  // This will be converted to a number in the AmountInput component
+  amount: z
+    .string({ message: "Amount must be a number" })
+    .min(1, { message: "Amount is required" }),
   payee: z
     .string()
     .min(1, { message: "Payee is required" })

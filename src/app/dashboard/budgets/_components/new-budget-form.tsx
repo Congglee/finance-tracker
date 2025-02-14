@@ -11,59 +11,36 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Option } from "@/constants/options";
 import {
-  UpdateTransactionBody,
-  UpdateTransactionBodyType,
-} from "@/schemas/transaction.schema";
+  CreateBudgetBody,
+  CreateBudgetBodyType,
+} from "@/schemas/budget.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-interface EditTransactionFormProps {
-  categoryOptions: Option[];
-  accountOptions: Option[];
+interface NewBudgetFormProps {
   onClose: () => void;
-  initialValues: any; // TODO: Replace any with data type from response data
   disabled?: boolean;
+  categoryOptions: Option[];
 }
 
-export default function EditTransactionForm({
-  categoryOptions,
-  accountOptions,
+export default function NewBudgetForm({
   onClose,
-  initialValues,
   disabled,
-}: EditTransactionFormProps) {
-  const form = useForm<UpdateTransactionBodyType>({
-    resolver: zodResolver(UpdateTransactionBody),
+  categoryOptions,
+}: NewBudgetFormProps) {
+  const form = useForm<CreateBudgetBodyType>({
+    resolver: zodResolver(CreateBudgetBody),
     defaultValues: {
       name: "",
       amount: "",
-      payee: "",
-      notes: "",
-      date: new Date(),
+      spent: "",
+      startDate: undefined,
+      endDate: undefined,
       categoryId: "",
-      accountId: "",
     },
   });
-
-  useEffect(() => {
-    if (initialValues) {
-      const { name, amount, payee, notes, date, categoryId, accountId } =
-        initialValues;
-      form.reset({
-        name,
-        amount: amount.toString(),
-        payee,
-        notes,
-        date: new Date(date),
-        categoryId,
-        accountId,
-      });
-    }
-  }, [initialValues, form]);
 
   const onSubmit = form.handleSubmit((values) => {
     console.log(values);
@@ -80,11 +57,7 @@ export default function EditTransactionForm({
             <FormItem>
               <FormLabel htmlFor="name">Name</FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  id="name"
-                  placeholder="Enter transaction name"
-                />
+                <Input {...field} id="name" placeholder="Enter budget name" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -97,37 +70,29 @@ export default function EditTransactionForm({
             <FormItem>
               <FormLabel htmlFor="amount">Amount</FormLabel>
               <FormControl>
-                <AmountInput {...field} placeholder="0.00" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="payee"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel htmlFor="payee">Payee</FormLabel>
-              <FormControl>
-                <Input {...field} id="payee" placeholder="Enter payee name" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="notes"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel htmlFor="notes">Notes</FormLabel>
-              <FormControl>
-                <Textarea
+                <AmountInput
                   {...field}
-                  id="notes"
-                  value={field.value ?? ""}
-                  placeholder="Optional notes"
+                  placeholder="0.00"
+                  mode="budget"
+                  hideIndicator={true}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          name="spent"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel htmlFor="spent">Spent</FormLabel>
+              <FormControl>
+                <AmountInput
+                  {...field}
+                  placeholder="0.00"
+                  mode="budget"
+                  hideIndicator={true}
                 />
               </FormControl>
               <FormMessage />
@@ -136,12 +101,33 @@ export default function EditTransactionForm({
         />
         <FormField
           control={form.control}
-          name="date"
+          name="startDate"
           render={({ field }) => (
             <FormItem>
-              <FormLabel htmlFor="date">Date</FormLabel>
+              <FormLabel htmlFor="date">Start Date</FormLabel>
               <FormControl>
-                <DatePicker value={field.value} onChange={field.onChange} />
+                <DatePicker
+                  value={field.value}
+                  onChange={field.onChange}
+                  enableFutureTime={true}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="endDate"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel htmlFor="date">End Date</FormLabel>
+              <FormControl>
+                <DatePicker
+                  value={field.value}
+                  onChange={field.onChange}
+                  enableFutureTime={true}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -168,29 +154,8 @@ export default function EditTransactionForm({
             </FormItem>
           )}
         />
-        <FormField
-          name="accountId"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel htmlFor="account_id">Account</FormLabel>
-              <FormControl>
-                <Combobox
-                  value={field.value}
-                  options={accountOptions}
-                  onChange={(value) => {
-                    form.setValue("accountId", value);
-                  }}
-                  placeholder="Select an account"
-                  emptyText="No accounts found"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <Button className="w-full" disabled={disabled}>
-          Save changes
+          Create budget
         </Button>
         <Button
           type="button"

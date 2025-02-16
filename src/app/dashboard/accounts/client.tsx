@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { accounts } from "@/constants/mock-data";
-import { useNewAccount } from "@/store/accounts/use-new-account";
+import { useNewAccountSheet } from "@/store/accounts/use-new-account-sheet";
 import { PlusCircle } from "lucide-react";
 
 export default function AccountsClient() {
-  const { onOpen } = useNewAccount();
+  const { onOpen } = useNewAccountSheet();
 
   return (
     <Card className="border-none drop-shadow-sm">

@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { categories } from "@/constants/mock-data";
-import { useNewCategory } from "@/store/categories/use-new-category";
+import { useNewCategorySheet } from "@/store/categories/use-new-category-sheet";
 import { PlusCircle } from "lucide-react";
 
 export default function CategoriesClient() {
-  const { onOpen } = useNewCategory();
+  const { onOpen } = useNewCategorySheet();
 
   return (
     <Card className="border-none drop-shadow-sm">

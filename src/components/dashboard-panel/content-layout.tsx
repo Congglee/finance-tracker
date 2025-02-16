@@ -14,7 +14,7 @@ import DashboardHeading from "@/components/dashboard-panel/dashboard-heading";
 interface ContentLayoutProps {
   title: string;
   children: React.ReactNode;
-  breadcrumbs: { name: string; href: string }[];
+  breadcrumbs?: { name: string; href: string }[];
   hasFilters?: boolean;
   heading?: string;
   description?: string;

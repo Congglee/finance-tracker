@@ -7,11 +7,11 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { categories } from "@/constants/mock-data";
-import { useOpenCategory } from "@/store/categories/use-open-category";
+import { useOpenCategorySheet } from "@/store/categories/use-open-category-sheet";
 import { Loader2 } from "lucide-react";
 
 export default function EditCategorySheet() {
-  const { isOpen, onClose, id } = useOpenCategory();
+  const { isOpen, onClose, id } = useOpenCategorySheet();
 
   const isPending = false;
 

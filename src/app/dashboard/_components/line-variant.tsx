@@ -5,11 +5,9 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
 } from "recharts";
 import { format } from "date-fns";
 import CustomTooltip from "@/app/dashboard/_components/custom-tooltip";
-import { formatCurrency } from "@/lib/utils";
 
 interface LineVariantProps {
   data: {

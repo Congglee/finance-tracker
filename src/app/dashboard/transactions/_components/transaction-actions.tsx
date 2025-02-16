@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useOpenTransaction } from "@/store/transactions/use-open-transaction";
+import { useOpenTransactionSheet } from "@/store/transactions/use-open-transaction-sheet";
 
 interface TransactionsActionsProps {
   transactionId: string;
@@ -22,7 +22,7 @@ export default function TransactionActions({
     "Are you sure you want to delete this transaction?",
     "You are about to delete this transaction."
   );
-  const { onOpen } = useOpenTransaction();
+  const { onOpen } = useOpenTransactionSheet();
 
   const handleDelete = async () => {
     const ok = await confirm();

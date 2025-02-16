@@ -1,5 +1,4 @@
 import { budgets } from "@/constants/mock-data";
-import { useOpenBudget } from "@/store/budgets/use-open-budget";
 import {
   Sheet,
   SheetContent,
@@ -10,9 +9,10 @@ import {
 import { Loader2 } from "lucide-react";
 import EditBudgetForm from "@/app/dashboard/budgets/_components/edit-budget-form";
 import { categoryOptions } from "@/constants/options";
+import { useOpenBudgetSheet } from "@/store/budgets/use-open-budget-sheet";
 
 export default function EditBudgetSheet() {
-  const { isOpen, onClose, id } = useOpenBudget();
+  const { isOpen, onClose, id } = useOpenBudgetSheet();
 
   const isPending = false;
 

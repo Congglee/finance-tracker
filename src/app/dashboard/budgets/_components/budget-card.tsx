@@ -1,3 +1,4 @@
+import BudgetProgressBar from "@/app/dashboard/budgets/[budgetId]/_components/budget-progress-bar";
 import BudgetActions from "@/app/dashboard/budgets/_components/budget-actions";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import {
   Tooltip,
   TooltipContent,
@@ -38,7 +38,7 @@ export default function BudgetCard({
         <div className="space-y-1 flex flex-col flex-1">
           <CardTitle className="text-lg leading-6 line-clamp-1">
             <Link
-              href={`/dashboard/budgets/${budget.id}/edit`}
+              href={`/dashboard/budgets/${budget.id}`}
               className="hover:underline hover:text-primary"
             >
               {budget.name}
@@ -74,38 +74,31 @@ export default function BudgetCard({
         </div>
       </CardHeader>
       <CardContent className="p-5 text-xs xs:text-sm flex flex-col items-center justify-center text-[#342d3e]">
-        <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="relative w-full cursor-pointer">
-                <Progress value={percentageSpent} className="h-5" />
-                <div className="text-xs absolute top-1/2 -translate-y-1/2 left-4 overflow-hidden font-semibold">
-                  Amount: {formatCurrency(budget.amount)}
-                </div>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent className="px-2 py-1 text-xs">
-              <div className="space-y-1">
-                <p>
-                  Spent: {formatCurrency(budget.spent)} (
-                  {percentageSpent.toFixed(1)}%)
-                </p>
-                <p>Budget: {formatCurrency(budget.amount)}</p>
-              </div>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <BudgetProgressBar
+          amount={budget.amount}
+          spent={budget.spent}
+          percentageSpent={percentageSpent}
+        />
       </CardContent>
       <CardFooter className="border-t bg-muted/50 px-5 py-3 text-muted-foreground text-xs">
-        <div className="flex flex-col xs:flex-row gap-y-4 gap-x-6 items-start xs:justify-between w-full">
+        <div className="flex flex-col xs:flex-row gap-y-1 gap-x-6 items-start xs:justify-between w-full">
           <div className="flex flex-col gap-1 font-semibold basis-1/2">
-            <span>Spent: {formatCurrency(budget.spent)}</span>
-            <span>
-              Remaining: {formatCurrency(budget.amount - budget.spent)}
-            </span>
+            Remaining: {formatCurrency(budget.amount - budget.spent)}
           </div>
-          <div className="xs:text-right basis-1/2 line-clamp-3">
-            Category: Mock Category
+          <div className="xs:text-right basis-1/2 line-clamp-2">
+            {budget.spent > budget.amount ? (
+              <span className="text-destructive font-medium">
+                Over budget by {formatCurrency(budget.spent - budget.amount)}
+              </span>
+            ) : (
+              <span className="text-muted-foreground">
+                {(
+                  ((budget.amount - budget.spent) / budget.amount) *
+                  100
+                ).toFixed(1)}
+                % available
+              </span>
+            )}
           </div>
         </div>
       </CardFooter>

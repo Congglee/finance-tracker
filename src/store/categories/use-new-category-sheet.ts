@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
-type NewBudgetState = {
+type NewCategorySheetState = {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 };
 
-export const useNewBudget = create<NewBudgetState>((set) => ({
+export const useNewCategorySheet = create<NewCategorySheetState>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),

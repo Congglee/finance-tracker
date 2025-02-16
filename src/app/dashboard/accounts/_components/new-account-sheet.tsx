@@ -6,11 +6,11 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { useNewAccount } from "@/store/accounts/use-new-account";
+import { useNewAccountSheet } from "@/store/accounts/use-new-account-sheet";
 import { Loader2 } from "lucide-react";
 
 export default function NewAccountSheet() {
-  const { isOpen, onClose } = useNewAccount();
+  const { isOpen, onClose } = useNewAccountSheet();
 
   const isPending = false;
 

@@ -1,4 +1,3 @@
-import { useNewBudget } from "@/store/budgets/use-new-budget";
 import {
   Sheet,
   SheetContent,
@@ -9,9 +8,10 @@ import {
 import { Loader2 } from "lucide-react";
 import NewBudgetForm from "@/app/dashboard/budgets/_components/new-budget-form";
 import { categoryOptions } from "@/constants/options";
+import { useNewBudgetSheet } from "@/store/budgets/use-new-budget-sheet";
 
 export default function NewBudgetSheet() {
-  const { isOpen, onClose } = useNewBudget();
+  const { isOpen, onClose } = useNewBudgetSheet();
 
   const isPending = false;
 

@@ -8,14 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { budgets, categories } from "@/constants/mock-data";
-import { Option } from "@/constants/options";
-import { useNewBudget } from "@/store/budgets/use-new-budget";
-import { Download, PlusCircle, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { budgets } from "@/constants/mock-data";
+import { useNewBudgetSheet } from "@/store/budgets/use-new-budget-sheet";
+import { Download, PlusCircle } from "lucide-react";
 
 export default function BudgetsClient() {
-  const { onOpen } = useNewBudget();
+  const { onOpen } = useNewBudgetSheet();
 
   return (
     <Card className="border-none drop-shadow-sm">

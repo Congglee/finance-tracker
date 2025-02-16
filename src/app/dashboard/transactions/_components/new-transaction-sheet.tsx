@@ -7,11 +7,11 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { accountOptions, categoryOptions } from "@/constants/options";
-import { useNewTransaction } from "@/store/transactions/use-new-transaction";
+import { useNewTransactionSheet } from "@/store/transactions/use-new-transaction-sheet";
 import { Loader2 } from "lucide-react";
 
 export default function NewTransactionSheet() {
-  const { isOpen, onClose } = useNewTransaction();
+  const { isOpen, onClose } = useNewTransactionSheet();
 
   const isPending = false;
 

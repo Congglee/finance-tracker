@@ -18,7 +18,7 @@ import { Separator } from "@/components/ui/separator";
 import { categoryOptions } from "@/constants/options";
 import { cn } from "@/lib/utils";
 import { Column } from "@tanstack/react-table";
-import { CheckIcon, ListCheckIcon, X } from "lucide-react";
+import { CheckIcon, ListCheckIcon } from "lucide-react";
 
 interface CategoryFilterProps<TData, TValue> {
   column?: Column<TData, TValue>;

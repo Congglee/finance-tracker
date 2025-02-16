@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useOpenAccount } from "@/store/accounts/use-open-account";
+import { useOpenAccountSheet } from "@/store/accounts/use-open-account-sheet";
 
 interface AccountActionsProps {
   accountId: string;
@@ -21,7 +21,7 @@ export default function AccountActions({ accountId }: AccountActionsProps) {
     "You are about to delete this account."
   );
 
-  const { onOpen } = useOpenAccount();
+  const { onOpen } = useOpenAccountSheet();
 
   const handleDelete = async () => {
     const ok = await confirm();

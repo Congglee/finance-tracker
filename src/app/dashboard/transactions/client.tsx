@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { transactions } from "@/constants/mock-data";
-import { useNewTransaction } from "@/store/transactions/use-new-transaction";
+import { useNewTransactionSheet } from "@/store/transactions/use-new-transaction-sheet";
 import { PlusCircle } from "lucide-react";
 
 export default function TransactionsClient() {
-  const { onOpen } = useNewTransaction();
+  const { onOpen } = useNewTransactionSheet();
 
   return (
     <Card className="border-none drop-shadow-sm">

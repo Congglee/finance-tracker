@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useOpenCategory } from "@/store/categories/use-open-category";
+import { useOpenCategorySheet } from "@/store/categories/use-open-category-sheet";
 
 interface CategoryActionsProps {
   categoryId: string;
@@ -21,7 +21,7 @@ export default function CategoryActions({ categoryId }: CategoryActionsProps) {
     "You are about to delete this category."
   );
 
-  const { onOpen } = useOpenCategory();
+  const { onOpen } = useOpenCategorySheet();
 
   const handleDelete = async () => {
     const ok = await confirm();

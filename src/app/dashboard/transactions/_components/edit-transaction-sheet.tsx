@@ -8,11 +8,11 @@ import {
 } from "@/components/ui/sheet";
 import { transactions } from "@/constants/mock-data";
 import { accountOptions, categoryOptions } from "@/constants/options";
-import { useOpenTransaction } from "@/store/transactions/use-open-transaction";
+import { useOpenTransactionSheet } from "@/store/transactions/use-open-transaction-sheet";
 import { Loader2 } from "lucide-react";
 
 export default function EditTransactionSheet() {
-  const { isOpen, onClose, id } = useOpenTransaction();
+  const { isOpen, onClose, id } = useOpenTransactionSheet();
 
   const isPending = false;
 

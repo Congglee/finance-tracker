@@ -6,11 +6,11 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { useNewCategory } from "@/store/categories/use-new-category";
+import { useNewCategorySheet } from "@/store/categories/use-new-category-sheet";
 import { Loader2 } from "lucide-react";
 
 export default function NewCategorySheet() {
-  const { isOpen, onClose } = useNewCategory();
+  const { isOpen, onClose } = useNewCategorySheet();
 
   const isPending = false;
 

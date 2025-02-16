@@ -7,11 +7,11 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { accounts } from "@/constants/mock-data";
-import { useOpenAccount } from "@/store/accounts/use-open-account";
+import { useOpenAccountSheet } from "@/store/accounts/use-open-account-sheet";
 import { Loader2 } from "lucide-react";
 
 export default function EditAccountSheet() {
-  const { isOpen, onClose, id } = useOpenAccount();
+  const { isOpen, onClose, id } = useOpenAccountSheet();
 
   const isPending = false;
 

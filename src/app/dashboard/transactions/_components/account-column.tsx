@@ -1,4 +1,4 @@
-import { useOpenAccount } from "@/store/accounts/use-open-account";
+import { useOpenAccountSheet } from "@/store/accounts/use-open-account-sheet";
 
 interface AccountColumnProps {
   account: string | null;
@@ -9,7 +9,7 @@ export default function AccountColumn({
   account,
   accountId,
 }: AccountColumnProps) {
-  const { onOpen: onOpenAccount } = useOpenAccount();
+  const { onOpen: onOpenAccount } = useOpenAccountSheet();
 
   const onClick = () => {
     onOpenAccount(accountId as string);

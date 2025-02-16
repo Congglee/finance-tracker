@@ -6,8 +6,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useConfirm } from "@/hooks/use-confirm";
-import { useOpenBudget } from "@/store/budgets/use-open-budget";
+import { useOpenBudgetSheet } from "@/store/budgets/use-open-budget-sheet";
 import { Ellipsis, ExternalLinkIcon, SquarePen, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface BudgetActionsProps {
   budgetId: string;
@@ -18,8 +19,9 @@ export default function BudgetActions({ budgetId }: BudgetActionsProps) {
     "Are you sure you want to delete this budget?",
     "You are about to delete this budget."
   );
+  const router = useRouter();
 
-  const { onOpen } = useOpenBudget();
+  const { onOpen } = useOpenBudgetSheet();
 
   const handleDelete = async () => {
     const ok = await confirm();
@@ -28,6 +30,10 @@ export default function BudgetActions({ budgetId }: BudgetActionsProps) {
       // Delete budget
       console.log("Delete budget with id:", budgetId);
     }
+  };
+
+  const onOpenBudget = () => {
+    router.push(`/dashboard/budgets/${budgetId}`);
   };
 
   return (
@@ -41,7 +47,7 @@ export default function BudgetActions({ budgetId }: BudgetActionsProps) {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuItem
-            onClick={() => {}}
+            onClick={onOpenBudget}
             className="cursor-pointer font-medium p-[10px]"
           >
             <ExternalLinkIcon className="size-4 mr-2 stroke-2" />
